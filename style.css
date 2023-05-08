@@ -1,0 +1,205 @@
+/*El lenguaje Cascading Style Sheets describe la presentación de un documento html. CSS funciona en base a selectores que seleccionan elementos dentro del archivo html.
+Se pueden seleccionar uno (con la etiqueta del elemento), todos (con un *) o múltiples (con .class) elementos.
+El lenguaje CSS: se escribe así: selector, {}, propiedades, seguidas de un punto y coma.*/
+
+/*El # se pone para señalar qque se debe buscar un id*/
+#Título {
+    color: tomato;
+}
+
+/*Al poner una etiqueta seguido de una clase, indicamos que a todas las etiquetas n que contengan una clase x asignarles el color blue.*/
+p.texto {
+    color: blue;
+}
+p.especial {
+    color: aqua;
+}
+/*Dependiendo del orden en el que escribamos el código, se va a anteponer a lo que hayamos escrito antes.*/
+
+div p {
+color: brown;
+}
+/*En todo div que tenga hijos p, que p tengan el siguiente estilo.*/
+
+div h2, div h3 {
+    color: blueviolet;
+    font-style: italic;
+}
+
+/*El selector universal va a definir las propiedades de todos los elementos, si es que ya no tienen definida una propiedad.
+En este caso, font-size se aplica a todo excepto a div h2, div h3 que ya tienen establecida una propiedad de font-size.
+Lo mismo pasa con el color.*/
+*{
+    font-size: 24px;
+/*     color: black;
+ */    font-style: normal;
+}
+
+/*Hay 3 maneras de indicar el color: rgb, exagecimal o x.*/
+/*El exagecimal se basa en en # seguido de 3 o 6 caracteres, siendo 0 la ausencia de color (negro) y f la totalidad de todos los colores (blanco).*/
+/*El primer dígito representa el rojo, el segundo el verde y el tercero el azul.*/
+/*En el caso de tener 6 dígitos, los 2 primeros equivalen al rojo, los siguientes dos al verde, y los últimos dos al azul.
+El primer dígito de cada par de dígitos es el de más valor.*/
+/*.color {
+    color: #ff0000;
+}
+*/
+
+/*Valores de 0 a 255. Mismo valor de colores (rojo, verde, azul).*/
+/*
+.color {
+    color: rgb(0, 0, 255);
+}
+*/
+/*em es relativo al tamaño de la fuente.*/
+
+.color {
+/*     border: 5px black dotted;
+ */
+    border-style: solid;
+    border-color: blue;
+    border-radius: 5px;
+    border-width: 2rem;
+}
+/*dotted
+dashed
+solid
+double 
+(valores tridimensionales:)
+groove 
+ridge 
+inset 
+outsed 
+none 
+hidden 
+*/
+
+#fondo {
+    color: aliceblue;
+    background-color: rgba(0, 0, 0);
+/*     opacity: 0.3; */
+    background: #f00000 url(Fotos/Forlán.jpg) repeat-y center bottom / 100px 100px;
+    height: 200px;
+  /*Para que la imagen no se repita, se repita en el eje x o y.*/
+   /*Para indicar en qué posición se va a repetir la imagen. Se pueden dar valores en dimensiones.*/
+}
+/*En background-color el último dígito indica la intencidad, siendo 1 sólido y 0 transparente.*/
+/*Opacity le da transparencia al elemento completo.*/
+/*Cover hace que la imagen se adapte dependiendo del ancho del explorador, no ocurre ni con complain ni con auto.*/
+/*A background-size le podemos poner números, siendo el primero el ancho y el segundo el alto.*/
+/*Si queremos usar las propiedades de background-size y de background hay que escribir primero la de background.*/
+
+.margen {
+    background-color: chocolate;
+    margin: 15px; /*Top, right, bottom, left*/ /*Top bottom*/ /*General*/
+    padding: 30px 15px 5px; /*Para agregar espacio dentro del elemento*/
+    border: solid 1px black; /*Entre el medio de padding y margin*/
+    height: 100px; /*Height y width afecta solo a la etiqueta referenciada en el html*/
+    width: 50px;
+    overflow: scroll; /*visible, hidden, scroll*/
+    outline: 1px solid red; /*Después del border y antes del margin*/
+} 
+
+.text {
+    font-family: 'Roboto', sans-serif;
+    text-align: center; /*Left, right, center, justify*/
+    text-decoration: underline; /*Underline, line-thorugh, overline*/
+    text-shadow: 3px 5px 5px blue; /*Right, bottom, blur*/
+}
+
+/*Los links tienen tres estados:*/
+/*Este orden es MUY importante*/
+a:link{
+    color: blue;
+}
+a:visited {
+    color: blueviolet;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:active {
+    color: blueviolet;
+}
+
+ul {
+    background-color: cyan;
+     list-style-type: none; /*Se puede cambiar el none. Los puntos desaparecen, pero no el espacio*/
+     padding-left: 0;
+/*     list-style-position: inside;
+ */}
+
+ table {
+    width: 100%;
+    border-collapse: collapse; /*border-collapse junta el marco del border en la table*/
+ }
+ th, td {
+    border: solid 1px #eee;
+    padding: 5px;
+ }
+ th {
+    background-color: tomato;
+    color: white;
+    text-align: left;
+ }
+ tr:nth-child(even) {
+    background-color: #eee;
+ } /*odd (par) o even (impar)*/
+ tr:hover {
+background-color: #aaa;
+cursor: pointer;
+ }
+
+ span {
+/*     display: block; /*display block hace que los elementos partan en una nueva línea, viene por defecto en div y en la mayoria de elementos html*/
+/*     display: none;
+ */
+    display: block;
+    max-width: 300px;
+    background-color: rebeccapurple;
+}
+
+ .inline {
+    display: inline; /*los elementos no comienzan en nueva línea*/
+ }
+
+#position {
+    position: sticky; /*Con fixed se mueve al bajar en la página. Con sticky toma la posición que le corresponde, pero si hay top es relative y fixed*/
+    left: 20px;
+    top: 25px;
+}
+
+.left {
+    float: left;
+    width: 200px;
+    height: 200px;
+}
+.right {
+    float: right;
+}
+
+.container {
+    height: 200px;
+} /*Derecha e izqierda se encuentran ambos juntos porque están en el mismo div*/
+
+.column {
+
+    margin: 0;
+    padding: 10px 0;
+    width: 33.3%;
+}
+
+.inline-block {
+    display: inline-block; /*inline anula la propiedad height/width*/
+    height: 55px;
+    background-color: red;
+}
+
+.center {
+    text-align: center;
+    padding: 50px 0;
+    width: 200px;
+    margin: 0 auto;
+    background-color: aqua;
+}
+
